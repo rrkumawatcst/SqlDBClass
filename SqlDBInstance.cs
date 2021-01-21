@@ -78,7 +78,7 @@ namespace SchedularApp.SqlDBClass
         /// <param name="prName">Procedure Name like : : prgetStudentInfoByName</param>
         /// <param name="ht">parameter store in : : ht["stName"] = "Ram"</param>
         /// <returns></returns>
-        public DataTable getDatatable(string prName, Hashtable ht)
+        public DataTable getDatatable(string prName, Hashtable ht=null)
         {
             try
             {
@@ -98,12 +98,14 @@ namespace SchedularApp.SqlDBClass
                     //
                     // MAP hashtable ht to stored procedure parameters using ICollection Interface...
                     //
-                    ICollection keys = ht.Keys;
-                    foreach (String k in keys)
+                    if (ht != null)
                     {
-                        cmd.Parameters.AddWithValue("@" + k, ht[k]);
+                        ICollection keys = ht.Keys;
+                        foreach (String k in keys)
+                        {
+                            cmd.Parameters.AddWithValue("@" + k, ht[k]);
+                        }
                     }
-
                     //
                     // data retrive from execute command
                     //
