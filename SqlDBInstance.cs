@@ -1,11 +1,13 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Data;                   //Add System.Data
-using System.Data.SqlClient;        //Add System.Data.SqlClient;
-using System.Collections;           // Add System.Collection
-namespace SqlDBClass
+using System.Web;
+using System.Data;
+using System.Data.SqlClient;
+using System.Collections;
+using System.Configuration;
+
+namespace SchedularApp.SqlDBClass
 {
     public class SqlDBInstance
     {
@@ -76,7 +78,7 @@ namespace SqlDBClass
         /// <param name="prName">Procedure Name like : : prgetStudentInfoByName</param>
         /// <param name="ht">parameter store in : : ht["stName"] = "Ram"</param>
         /// <returns></returns>
-        public DataTable getDatatable(string prName,Hashtable ht)
+        public DataTable getDatatable(string prName, Hashtable ht)
         {
             try
             {
@@ -93,23 +95,22 @@ namespace SqlDBClass
                         CommandText = prName,
                         CommandType = CommandType.StoredProcedure
                     };
-
-
                     //
                     // MAP hashtable ht to stored procedure parameters using ICollection Interface...
                     //
                     ICollection keys = ht.Keys;
                     foreach (String k in keys)
                     {
-                        cmd.Parameters.AddWithValue("@"+k, ht[k]);
+                        cmd.Parameters.AddWithValue("@" + k, ht[k]);
                     }
 
                     //
                     // data retrive from execute command
                     //
-
+                    sda = new SqlDataAdapter();
+                    sda.SelectCommand = cmd;
+                    sda.Fill(dt);
                 }
-
                 return dt;
             }
             catch (Exception ex)
@@ -122,6 +123,5 @@ namespace SqlDBClass
                 con.Dispose();
             }
         }
-
     }
 }
