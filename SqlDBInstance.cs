@@ -125,5 +125,38 @@ namespace SchedularApp.SqlDBClass
                 con.Dispose();
             }
         }
+        
+        
+        ///<summary>
+        ///This function is use for to Insert,update ,Delete statement  ---Added By Trupti on 28-01-2021
+        ///<param name="cmdString">cmdString = "Create Table Stdudent(Std_ID int PRIMARY KEY , StdName varchar(30) not null)"</param>
+        ///</summary>
+        public int ExecuteSqlStmt(string cmdString)
+        {
+            try
+            {
+                con.Open();
+                lock(cmdString)
+                {
+                    cmd = new SqlCommand()
+                    {
+                        Connections = con,
+                        CommandText = cmdString,
+                        CommandType = CommadType.Text
+
+                    };
+                    return cmd.ExecuteNonQuery();
+                }
+            }
+            catch(Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            finally
+            {
+                con.close();
+                con.Dispose();
+            }
+        }
     }
 }
