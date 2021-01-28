@@ -1,0 +1,76 @@
+.ProjectTitle
+{
+    text-align: center;
+    font-size: 30px;
+    width: auto;
+    background-color:#34495E;
+    color: white;
+}
+.Menubar
+{
+    background-color: black;
+    width:auto;
+    height: 10px;
+}
+
+.Menubar ul
+{
+    list-style-type: none;
+    overflow: hidden;
+    padding: 0;
+    margin: 0;
+    background-color: black;
+    
+}
+.Menubar ul li 
+{
+    float: left;
+}
+.Menubar ul li a
+{
+    display: block;
+    color: white;
+    text-align: center;
+    padding:7px;
+    padding-left: 20px;
+    padding-right: 20px;
+    text-decoration: none;
+    font-size: 18px;
+}
+.Menubar ul li a:hover
+{
+    background-color:cadetblue;
+}
+
+/* CSS For Account Page And Registration Page*/
+.CreateAccountPage
+{
+    margin-top:10%;
+    margin-left:30%;
+    margin-right:30%;
+    padding: 20px;
+    border-style:solid;
+    border-width: 1px;
+    align-content: center;
+}
+
+.CreateAccountPage .FormTitle
+{
+    font-size: 20px;
+    background-color:brown;
+    color: white;
+    padding-left: 20px;
+    width: auto;
+    margin-bottom: 10px;
+}
+
+.CreateAccountPage table tr th
+{
+    padding-left: 20px;
+}
+
+.CreateAccountPage .CellRight
+{
+    float: right;
+    padding-top: 10px;
+}
