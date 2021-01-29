@@ -1,10 +1,9 @@
-.ProjectTitle
-{
+.ProjectTitle {
     text-align: center;
     font-size: 30px;
     width: auto;
-    background-color:#34495E;
-    color: white;
+    background-color: #566068;
+    color:#eeeeee;
 }
 .Menubar
 {
@@ -13,15 +12,13 @@
     height: 10px;
 }
 
-.Menubar ul
-{
-    list-style-type: none;
-    overflow: hidden;
-    padding: 0;
-    margin: 0;
-    background-color: black;
-    
-}
+    .Menubar ul {
+        list-style-type: none;
+        overflow: hidden;
+        padding: 0;
+        margin: 0;
+        background-color: #b91f45;
+    }
 .Menubar ul li 
 {
     float: left;
@@ -43,26 +40,31 @@
 }
 
 /* CSS For Account Page And Registration Page*/
-.CreateAccountPage
-{
-    margin-top:10%;
-    margin-left:30%;
-    margin-right:30%;
+.CreateAccountPage {
+    margin-top: 10%;
+    margin-left: 30%;
+    margin-right: 30%;
     padding: 20px;
-    border-style:solid;
+    border-style: solid;
     border-width: 1px;
     align-content: center;
+    background-color: #1d214a;
+    box-shadow: 10px 10px 10px #353655;
+    border-top-right-radius: 20px;
+    border-bottom-left-radius: 25px;
 }
 
-.CreateAccountPage .FormTitle
-{
-    font-size: 20px;
-    background-color:brown;
-    color: white;
-    padding-left: 20px;
-    width: auto;
-    margin-bottom: 10px;
-}
+    .CreateAccountPage .FormTitle {
+        font-size: 20px;
+        background-color: #b91f45;
+        color: white;
+        padding-left: 20px;
+        width: auto;
+        margin-bottom: 10px;
+        text-align:center;
+        border-radius:10px;
+        
+    }
 
 .CreateAccountPage table tr th
 {
@@ -72,76 +74,6 @@
 .CreateAccountPage .CellRight
 {
     float: right;
+    color: snow;
     padding-top: 10px;
-}
-
-/* CSS For Slot Page*/
-
-.CreateSlot
-{
-    margin-top: 7%;
-    margin-left: 37%;
-    margin-right: 37%;
-    padding: 20px;
-    border-width:1px;
-    border-style:solid;
-}
-
-.CreateSlot .CellRight
-{
-    float: right;
-    padding-top: 10px;
-}
-
-.CreateSlot .FormTitle
-{
-    font-size: 20px;
-    background-color:brown;
-    color: white;
-    padding-left: 20px;
-    width: auto;
-    margin-bottom: 10px;
-}
-
-.DataTableStyle
-{
-    margin:25px;
-    border-style: solid;
-    border-width: 1px;
-    height: 200px;
-    padding: 20px;
-}
-
-.DataTableStyle .TableHeader
-{
-    background-color: cadetblue;
-    color:white;
-}
-
-.DataTableStyle .TableHeader th
-{
-    padding-left: 20px;
-    padding-top:10px;
-    padding-bottom: 10px;
-    padding-right:20px;
-}
-
-.DataTableStyle .TableRows th
-{
-    padding-top: 10px;
-    padding-left: 20px;
-}
-
-.DataTableStyle .UpdateButton
-{
-    background-color: forestgreen;
-    color: white;
-    color: white;
-    padding-bottom: 10px;
-}
-.DataTableStyle .DeleteButton
-{
-    background-color:indianred;
-    color: white;
-    padding-bottom: 10px;
 }
