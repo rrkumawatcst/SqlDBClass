@@ -32,7 +32,7 @@ Begin
 	Begin
 		Update GLP_Users
 		set
-			Usr_Id=@Usr_Name,
+			Usr_Name=@Usr_Name,
 			Usr_Pass=@Usr_Pass,
 			Created_Date=GETDATE()
 		where Usr_Id=@USR_ID
