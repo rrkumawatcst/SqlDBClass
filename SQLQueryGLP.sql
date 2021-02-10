@@ -41,7 +41,7 @@ Begin
 	Begin
 		Update Tbl_GLP_Users
 		set
-			Usr_Id=@Usr_Name,
+			Usr_Name=@Usr_Name,
 			Usr_Pass=@Usr_Pass,
 			Created_Date=GETDATE()
 		where Usr_Id=@USR_ID
@@ -82,7 +82,6 @@ Begin
 		Begin
 			Update Tbl_GLP_Slot
 			set
-				Slot_Id=@Slot_Id,
 				Usr_ID=@USR_ID,
 				Slot_Name=@Slot_Name,
 				Created_Date=GETDATE()
@@ -130,7 +129,6 @@ Begin
 		Begin
 			Update Tbl_GLP_Topic
 			set
-				T_ID=@T_ID,
 				Slot_Id=@Slot_Id,
 				Topic_Name=@Topic_Name,
 				Topic_Txt=@Topic_Txt,
