@@ -1,3 +1,6 @@
+create database TestGLP
+use TestGLP
+
 -- GLP_Users Table--
 
 create table Tbl_GLP_Users(
@@ -10,7 +13,7 @@ Created_Date date DEFAULT GETDATE());
 
 create table Tbl_GLP_Slot(
 Slot_Id int PRIMARY KEY,
-Usr_ID int Foreign Key References GLP_Users(Usr_Id),
+Usr_ID int Foreign Key References Tbl_GLP_Users(Usr_Id),
 Slot_Name varchar(20) Not Null,
 Created_Date date DEFAULT GETDATE());
 
@@ -25,7 +28,7 @@ Created_Date date DEFAULT GETDATE())
 
 --Stored Proc for Insert and update data into GLP_User
 
-Alter Procedure Proc_GLP_USER_InsertData
+alter Procedure Proc_GLP_USER_InsertData
 (@USR_ID int=null,
 @Usr_Name varchar(50)=null,
 @Usr_Pass varchar(30)=null)
@@ -35,7 +38,8 @@ Begin
 	Begin
 		Declare	@id int
 		set @id = (select ISNULL(max(Usr_Id),0)+1 from Tbl_GLP_Users)
-		Insert into GLP_Users values(@id,@Usr_Name,@Usr_Pass,GETDATE())
+		Insert into Tbl_GLP_Users values(@id,@Usr_Name,@Usr_Pass,GETDATE())
+		return 1
 	End
 	Else
 	Begin
@@ -45,6 +49,7 @@ Begin
 			Usr_Pass=@Usr_Pass,
 			Created_Date=GETDATE()
 		where Usr_Id=@USR_ID
+		return 2
 	End
 End
 
@@ -82,9 +87,9 @@ Begin
 		Begin
 			Update Tbl_GLP_Slot
 			set
-				Usr_ID=@USR_ID,
-				Slot_Name=@Slot_Name,
-				Created_Date=GETDATE()
+				--Usr_ID=@USR_ID,
+				Slot_Name=@Slot_Name
+				--Created_Date=GETDATE()
 			where Slot_Id=@Slot_Id
 		End
 	End	
@@ -129,11 +134,11 @@ Begin
 		Begin
 			Update Tbl_GLP_Topic
 			set
-				Slot_Id=@Slot_Id,
+				--Slot_Id=@Slot_Id,
 				Topic_Name=@Topic_Name,
-				Topic_Txt=@Topic_Txt,
-				Created_Date=GETDATE()
-			where Slot_Id=@Slot_Id
+				Topic_Txt=@Topic_Txt
+				--Created_Date=GETDATE()
+			where T_ID = @T_ID--Slot_Id=@Slot_Id
 		End
 	End
 End
